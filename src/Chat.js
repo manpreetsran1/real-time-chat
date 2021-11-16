@@ -7,9 +7,13 @@ function Chat({ socket, username, room }) {
 
   const sendMessage = async () => {
     if (currentMessage !== "") {
+
+      console.log(socket, "client socket")
       const messageData = {
+        senderChatID: socket.id,
         room: room,
         author: username,
+        receiverChatID:"FWWC_S40TObVQpvUAAAB",
         message: currentMessage,
         time:
           new Date(Date.now()).getHours() +
